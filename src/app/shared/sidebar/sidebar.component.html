@@ -7,7 +7,8 @@
                <li><a><i class="{{item.icono}}"></i> {{item.titulo}} <span class=""></span></a>
                     <ul class="nav child_menu">
                         @for (subItem of item.subMenu; track $index) {
-                            <li><a [routerLink]="subItem.url" routerLinkActive="router-link-active" >{{subItem.titulo}}</a></li>
+                            <li class="active"><a 
+                              [routerLink]="subItem.url"  >{{subItem.titulo}}</a></li>
                         }
                     </ul>
                 
