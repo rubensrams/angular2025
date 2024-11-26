@@ -7,8 +7,7 @@ import { RouterModule } from '@angular/router';
   selector: 'app-nofound',
   standalone: true,
   imports: [RouterModule],
-  templateUrl: './nofound.component.html',
-  styleUrl: './nofound.component.css'
+  templateUrl: './nofound.component.html'
 })
 export class NofoundComponent {
 

@@ -11,9 +11,9 @@ export class SidebarService {
     {
       titulo: 'Inicio',
       icono: 'fa fa-home',
+      admin: false,
         subMenu: [
           {titulo: 'Home', url: '/' },
-          {titulo: 'Graficas', url: '/grafica1' },
           {titulo: 'Progress', url: '/progress' }
         ]
     },
@@ -21,10 +21,9 @@ export class SidebarService {
     {
       titulo: 'Avances',
       icono: 'fa fa-edit',
+      admin: true,
         subMenu: [
-          {titulo: 'Home', url: '/home' },
-          {titulo: 'Graficas', url: '/grafica2' },
-          {titulo: 'Progress', url: '/progres3' }
+          {titulo: 'Graficas', url: '/grafica1' }
         ]
     }
   ]

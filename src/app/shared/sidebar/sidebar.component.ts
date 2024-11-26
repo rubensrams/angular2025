@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SidebarService } from '../../services/sidebar.service';
+import { AuthService } from '../../services/auth.service';
+
+declare function initReload(): any;
 
 @Component({
   selector: 'app-sidebar',
@@ -16,10 +19,21 @@ export class SidebarComponent implements OnInit{
   menuItens: any[]= [];
 
   ngOnInit(): void {
-
+   initReload();
+   
   }
 
-  constructor(private sideBar: SidebarService){
+  constructor(private sideBar: SidebarService,
+      private authService: AuthService
+
+  ){
     this.menuItens = sideBar.menu;
+    
   }
+
+
+  isAdmin():boolean{
+    return this.authService.isAdmin();
+  }
+
 }

@@ -3,16 +3,16 @@
           <div class="menu_section ">
             <h3>General</h3>
             <ul class="nav side-menu">
-              @for (item of menuItens; track $index) {
-               <li><a><i class="{{item.icono}}"></i> {{item.titulo}} <span class=""></span></a>
+              @for (item of menuItens; track $index) {              
+                @if(item.admin == isAdmin() || isAdmin()){
+                  <li><a><i class="{{item.icono}}"></i> {{item.titulo}} <span class=""></span></a>
                     <ul class="nav child_menu">
                         @for (subItem of item.subMenu; track $index) {
-                            <li class="active"><a 
-                              [routerLink]="subItem.url"  >{{subItem.titulo}}</a></li>
+                            <li class="active"><a [routerLink]="subItem.url"  >{{subItem.titulo}}</a></li>
                         }
-                    </ul>
-                
-              </li>
+                    </ul>                
+                  </li>
+                   }
               }
             </ul>
           </div>

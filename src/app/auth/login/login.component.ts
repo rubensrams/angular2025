@@ -45,7 +45,7 @@ export class LoginComponent {
           const token = response.token;
           console.log(token);
           const payload = this.authService.getPayload(token);
-
+          console.log(payload);
           const user = { username: payload.sub };
           const login = {
             user,
@@ -61,7 +61,7 @@ export class LoginComponent {
           if (error.status == 401) {
             Swal.fire('Error en el Login', error.error.message, 'error')
           } else {
-            throw error;
+            Swal.fire('Por el momento el servicio no está disponible. Intenta mas tarde', error.error.message, 'error')
           }
         }
       })
