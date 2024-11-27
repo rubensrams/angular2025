@@ -2,12 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Advice } from '../../models/advice';
 import { AdvicesService } from '../../services/advices.service';
 import { CommonModule } from '@angular/common';
-import { User } from '../../models/user';
+import { NgxSpinnerService } from 'ngx-spinner';
+import { NgxSpinnerModule } from 'ngx-spinner';
+
+
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NgxSpinnerModule],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
@@ -16,7 +19,8 @@ export class DashboardComponent implements OnInit {
 
 
   constructor( 
-    private advicesServices:AdvicesService  
+    private advicesServices:AdvicesService ,
+    private spinner: NgxSpinnerService
   ){
 
   }
@@ -30,6 +34,14 @@ export class DashboardComponent implements OnInit {
    }
   
 
+   carga():void{
 
+    this.spinner.show();
+
+    setTimeout(() => {
+      this.spinner.hide();
+    }, 2000);
+
+   }
 
 }
