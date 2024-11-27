@@ -1,0 +1,55 @@
+    <!-- page content -->
+    <div class="">
+        <div class="page-title">
+          <div class="title_left">
+            <h3>Usuarios</h3>
+          </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div class="row">
+          <div class="col-md-12 col-sm-12  ">
+            <div class="x_panel">
+              
+              <div class="x_content">
+                  
+                <div class="table-responsive">
+                 
+                  <table class="table table-striped jambo_table bulk_action">
+                    <thead>
+                      <tr class="headings">
+                        <th class="column-title">Clave </th>
+                        <th class="column-title">Usuario</th>
+                        <th class="column-title">Nombre </th>
+                        <th class="column-title">Paterno </th>
+                        <th class="column-title">Materno </th>
+                      </tr>
+                    </thead>
+
+                    <tbody>
+
+                      @for (item of users; track $index) {
+                      <tr class="even pointer">
+                        <td class=" ">{{item.id}}</td>
+                        <td class=" ">{{item.username}}</td>
+                        <td class=" ">{{item.nombre }}</td>
+                        <td class=" ">{{item.paterno}}</td>
+                        <td class=" ">{{item.materno}}</td>
+                      </tr>                               
+                    }               
+                    </tbody>
+                  </table>
+
+
+
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+    <!-- /page content -->

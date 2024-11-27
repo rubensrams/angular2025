@@ -43,10 +43,10 @@ export class LoginComponent {
          this.authService.loginUser(this.user).subscribe({
           next: response => {
           const token = response.token;
-          console.log(token);
           const payload = this.authService.getPayload(token);
-          console.log(payload);
-          const user = { username: payload.sub };
+          const nombreUsuario =payload.sub;
+          const user = nombreUsuario;
+          console.log('Nombre de usuario '+ user)
           const login = {
             user,
             isAuth: true,

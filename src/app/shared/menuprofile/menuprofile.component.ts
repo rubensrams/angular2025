@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menuprofile',
@@ -6,6 +7,15 @@ import { Component } from '@angular/core';
   imports: [],
   templateUrl: './menuprofile.component.html'
 })
-export class MenuprofileComponent {
+export class MenuprofileComponent implements OnInit{
+  user!:string;
+  constructor(
+    private authserice:AuthService){
+  
+  }
+
+  ngOnInit(): void {
+    this.user= this.authserice.user.user;
+  }
 
 }

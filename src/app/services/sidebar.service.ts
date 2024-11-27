@@ -19,10 +19,11 @@ export class SidebarService {
     },
 
     {
-      titulo: 'Avances',
+      titulo: 'Configuración',
       icono: 'fa fa-edit',
       admin: true,
         subMenu: [
+          {titulo: 'Usuarios', url: '/users' },
           {titulo: 'Graficas', url: '/grafica1' }
         ]
     }

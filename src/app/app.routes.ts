@@ -9,6 +9,7 @@ import { HomeComponent } from './admin/home/home.component';
 import { authGuard } from './guards/auth.guard';
 import { adminGuard } from './guards/admin.guard';
 import { ForbiddenComponent } from './pages/forbidden/forbidden.component';
+import { UsersComponent } from './admin/users/users.component';
 
 export const routes: Routes = [
    
@@ -18,6 +19,7 @@ export const routes: Routes = [
             { path: 'progress', component: ProgressComponent, canActivate: [authGuard]} ,
             { path: 'grafica1', component: Grafica1Component, canActivate: [adminGuard]} ,   
             { path: 'forbidden', component: ForbiddenComponent, canActivate: [authGuard]} ,   
+            { path: 'users', component: UsersComponent, canActivate: [adminGuard]} ,   
             { path: '', redirectTo: '/dashboard', pathMatch: 'full'},      
          ]
    } ,

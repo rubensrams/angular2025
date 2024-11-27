@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SidebarService } from '../../services/sidebar.service';
 import { AuthService } from '../../services/auth.service';
+import { User } from '../../models/user';
 
 declare function initReload(): any;
 
@@ -18,9 +19,10 @@ export class SidebarComponent implements OnInit{
   hola: string= '';
   menuItens: any[]= [];
 
+
   ngOnInit(): void {
    initReload();
-   
+  
   }
 
   constructor(private sideBar: SidebarService,
@@ -35,5 +37,7 @@ export class SidebarComponent implements OnInit{
   isAdmin():boolean{
     return this.authService.isAdmin();
   }
+
+
 
 }
