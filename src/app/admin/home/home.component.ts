@@ -4,6 +4,7 @@ import { SidebarComponent } from '../../shared/sidebar/sidebar.component';
 import { MenuprofileComponent } from '../../shared/menuprofile/menuprofile.component';
 import { FooterComponent } from '../../shared/footer/footer.component';
 import { RouterOutlet } from '@angular/router';
+import { SpinnerComponent } from '../../shared/spinner/spinner.component';
 
 declare function initCustonMin(): any;
 

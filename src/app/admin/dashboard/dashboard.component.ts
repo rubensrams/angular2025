@@ -1,26 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Advice } from '../../models/advice';
 import { AdvicesService } from '../../services/advices.service';
 import { CommonModule } from '@angular/common';
-import { NgxSpinnerService } from 'ngx-spinner';
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { SpinnerComponent } from '../../shared/spinner/spinner.component';
+
 
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, NgxSpinnerModule],
+  imports: [CommonModule, SpinnerComponent],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
 
   advices: Advice[] = [];
-
+  @ViewChild(SpinnerComponent) spinner!: SpinnerComponent;
 
   constructor( 
-    private advicesServices:AdvicesService ,
-    private spinner: NgxSpinnerService
+    private advicesServices:AdvicesService 
   ){
 
   }
@@ -33,15 +32,10 @@ export class DashboardComponent implements OnInit {
     }
    }
   
-
-   carga():void{
-
-    this.spinner.show();
-
-    setTimeout(() => {
-      this.spinner.hide();
-    }, 2000);
+   load():void{
+    this.spinner.startLoading();
 
    }
+
 
 }

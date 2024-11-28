@@ -1,23 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SharingDataService } from '../../services/sharing-data.service';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../models/user';
 import Swal from 'sweetalert2';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { SpinnerComponent } from '../../shared/spinner/spinner.component';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, SpinnerComponent],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 
 
 export class LoginComponent {
+  
+  @ViewChild(SpinnerComponent) spinner!: SpinnerComponent;
+  
   user: User;
- 
- 
+
+
+
   constructor(
     private router: Router,
     private authService: AuthService
@@ -40,6 +45,7 @@ export class LoginComponent {
         }        
       );
     } else {
+        this.spinner.startLoading();
          this.authService.loginUser(this.user).subscribe({
           next: response => {
           const token = response.token;
@@ -54,10 +60,13 @@ export class LoginComponent {
           };
           
           this.authService.token = token;
-          this.authService.user = login;
+          this.authService.user = login;   
+          this.spinner.stopLoading();       
           this.router.navigate(['/dashboard']);
+
         },
         error: error => {
+          this.spinner.stopLoading();       
           if (error.status == 401) {
             Swal.fire('Error en el Login', error.error.message, 'error')
           } else {

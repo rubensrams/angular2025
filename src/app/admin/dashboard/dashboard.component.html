@@ -4,20 +4,15 @@
             <div class="title_left">
               <h3>Dashboard</h3>
             </div>
-          </div>
-  
-          <div class="clearfix"></div>
-          <button (click)="carga()">Test carga</button>
-            
-          <ngx-spinner size = "large" type="ball-scale-multiple"><p style="font-size: 15px; color: white" > Cargando información... </p></ngx-spinner>
-          
-          
+          </div>  
+          <div class="clearfix"></div>        
           <div class="row">
             <div class="col-md-12 col-sm-12  ">
               <div class="x_panel">
                 
                 <div class="x_content">
-                    
+                  <button (click)="load()">Tets</button>
+                  <app-spinner></app-spinner>
                   <div class="table-responsive">
                    
                     <table class="table table-striped jambo_table bulk_action">
