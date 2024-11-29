@@ -31,9 +31,9 @@
                       <tbody>
 
                         @for (item of advices | paginate: { 
-                          itemsPerPage: 10,
-                          currentPage: p,
-                          totalItems: advices.length}; track $index) {
+                          itemsPerPage: itemsPerPage,
+                          currentPage: currentPage,
+                          totalItems: totalRegs}; track $index) {
 
                         <tr class="even pointer">
                           <td class=" ">{{item.id}}</td>
@@ -45,7 +45,11 @@
                       }               
                       </tbody>
                     </table>
-                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    <pagination-controls 
+                          previousLabel="Anterior"
+                          nextLabel="Siguiente"
+                          (pageChange)="currentPage = $event">
+                    </pagination-controls>
                    
                 </div>
               </div>
