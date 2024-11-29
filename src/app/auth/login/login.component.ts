@@ -1,5 +1,4 @@
 import { Component, ViewChild } from '@angular/core';
-import { SharingDataService } from '../../services/sharing-data.service';
 import { FormsModule } from '@angular/forms';
 import { User } from '../../models/user';
 import Swal from 'sweetalert2';

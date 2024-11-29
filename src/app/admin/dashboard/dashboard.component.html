@@ -14,13 +14,18 @@
 
 
                   <button (click)="load()">Tets</button>
+                  <div class="form-group">
+                    <input  name="filter" type="search" class="form-control" [(ngModel)]="filter" placeholder="Filter by descripcion or usuario">
+                  </div>
                   <app-spinner></app-spinner>                
                   <div class="table-responsive">
+                    <form action="">
+
                    
                     <table class="table table-striped jambo_table bulk_action">
                       <thead>
                         <tr class="headings">
-                          <th class="column-title">Clave </th>
+                          <th  class="column-title">Clave </th>
                           <th class="column-title">Descripción</th>
                           <th class="column-title">Fecha </th>
                           <th class="column-title">Tema </th>
@@ -30,10 +35,11 @@
 
                       <tbody>
 
-                        @for (item of advices | paginate: { 
+                        @for (item of advices | advices:filter | paginate: { 
                           itemsPerPage: itemsPerPage,
                           currentPage: currentPage,
-                          totalItems: totalRegs}; track $index) {
+                          totalItems: totalRegs};                          
+                          track $index) {
 
                         <tr class="even pointer">
                           <td class=" ">{{item.id}}</td>
@@ -50,7 +56,7 @@
                           nextLabel="Siguiente"
                           (pageChange)="currentPage = $event">
                     </pagination-controls>
-                   
+                  </form>
                 </div>
               </div>
             </div>

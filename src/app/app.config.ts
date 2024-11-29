@@ -8,7 +8,7 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { tokenInterceptor } from './interceptors/token.interceptor';
 import { provideSpinnerConfig } from 'ngx-spinner';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { SortableHeaderDirective } from './pipes/sortable-header.directive';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), 
@@ -18,7 +18,7 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(withInterceptors([tokenInterceptor])),
     provideCharts(withDefaultRegisterables()),
     provideSpinnerConfig({type: 'ball-scale-multiple'}),
-    importProvidersFrom([BrowserAnimationsModule]),  
+    importProvidersFrom([BrowserAnimationsModule, SortableHeaderDirective]),  
     
   ]
 }; 

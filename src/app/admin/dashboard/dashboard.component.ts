@@ -4,19 +4,22 @@ import { AdvicesService } from '../../services/advices.service';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from '../../shared/spinner/spinner.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AdvicesPipe } from '../../pipes/advices.pipe';
+import { FormsModule } from '@angular/forms';
+
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, SpinnerComponent, NgxPaginationModule],
+  imports: [CommonModule, SpinnerComponent, NgxPaginationModule, AdvicesPipe, FormsModule],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
-
+  filter!: string;
   advices: Advice[] = [];
   @ViewChild(SpinnerComponent) spinner!: SpinnerComponent;
-  currentPage: number= 4;
+  currentPage: number= 1;
   itemsPerPage: number= 10;
   totalRegs: number= 0;
   constructor( 
