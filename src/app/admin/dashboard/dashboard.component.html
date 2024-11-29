@@ -11,8 +11,10 @@
               <div class="x_panel">
                 
                 <div class="x_content">
+
+
                   <button (click)="load()">Tets</button>
-                  <app-spinner></app-spinner>
+                  <app-spinner></app-spinner>                
                   <div class="table-responsive">
                    
                     <table class="table table-striped jambo_table bulk_action">
@@ -28,7 +30,11 @@
 
                       <tbody>
 
-                        @for (item of advices; track $index) {
+                        @for (item of advices | paginate: { 
+                          itemsPerPage: 10,
+                          currentPage: p,
+                          totalItems: advices.length}; track $index) {
+
                         <tr class="even pointer">
                           <td class=" ">{{item.id}}</td>
                           <td class=" ">{{item.descripcion}}</td>
@@ -39,12 +45,8 @@
                       }               
                       </tbody>
                     </table>
-
-
-
-
-
-                  </div>
+                    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                   
                 </div>
               </div>
             </div>
