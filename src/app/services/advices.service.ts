@@ -1,20 +1,33 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Advice } from '../models/advice';
+import { URL_MICROSERVICIOS } from '../config/config';
+import { Tema } from '../models/tema';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AdvicesService {
 
-  private url: string = 'http://localhost:8080/AnguReact/api/advice/getAdvices';
-
   constructor(private http: HttpClient) { }
-
+ 
   findAll(): Observable<Advice[]> {
-    return this.http.get<Advice[]>(this.url);
+    const enpoint = URL_MICROSERVICIOS + '/advice/getAdvices';
+    return this.http.get<Advice[]>(enpoint);
   }
+
+  getThems(): Observable<Tema[]> {
+    const enpoint = URL_MICROSERVICIOS + '/thems/getThems';
+    return this.http.get<Tema[]>(enpoint);
+  }
+
+  /*getThems(): Observable<any> {
+    const enpoint = URL_MICROSERVICIOS + '/thems/getThems';
+    return this.http.get(enpoint).pipe(
+      map((response: any) => response.respuesta as Categoria[])
+    )
+  } */
 
 
 }

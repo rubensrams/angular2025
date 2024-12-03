@@ -81,5 +81,6 @@ export class AuthService {
     };
     sessionStorage.removeItem('login');
     sessionStorage.removeItem('token');
+    sessionStorage.removeItem('refresh');
   }
 }

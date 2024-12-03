@@ -1,7 +1,13 @@
 
 const initReload = () => {
 
-                 var currentDocumentTimestamp = new Date(performance.timing.domLoading).getTime();
+    var refresh = sessionStorage.getItem('refresh');
+            if (refresh===null){
+                location.reload();
+                sessionStorage.setItem('refresh', "1");
+    }
+
+/*                 var currentDocumentTimestamp = new Date(performance.timing.domLoading).getTime();
                 console.log('Entrando al metodo de recarga')
                     // Current Time //
                     var now = Date.now();
@@ -13,5 +19,13 @@ const initReload = () => {
                         location.reload();
                         console.log('recargando pagina')
                     }
+                   
+
+                    for (let i = 0; i < 2; i++) {
+                        console.log ("Block statement execution no." + i);
+                        //location.reload();
+                      }
+*/
+                    
 
 }

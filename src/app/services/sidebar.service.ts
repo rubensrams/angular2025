@@ -24,7 +24,9 @@ export class SidebarService {
       admin: true,
         subMenu: [
           {titulo: 'Usuarios', url: '/users' },
+          {titulo: 'Avisos', url: '/advices/list' },
           {titulo: 'Graficas', url: '/grafica1' }
+          
         ]
     }
   ]

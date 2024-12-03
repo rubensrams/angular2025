@@ -6212,3 +6212,28 @@ ul.notifications {
 #slash {
 	display: none;
 }
+
+
+
+.botonPrincipal{
+	background-color: #337ab7;
+	height: 30px;
+	border-color: white;
+	color: white;
+	font-weight: bold;
+}
+.botonSecundario{
+	background-color: white;
+	height: 25px;
+	color:#337ab7;
+	font-weight: bold;
+	border-color: #337ab7;
+}
+
+
+.labelForm{
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif;
+	color: gray;
+	font-size: 14;
+}

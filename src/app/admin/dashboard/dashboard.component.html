@@ -11,51 +11,18 @@
               <div class="x_panel">
                 
                 <div class="x_content">
-
-
-                  <button (click)="load()">Tets</button>
+             
                   <div class="form-group">
                     <input  name="filter" type="search" class="form-control" [(ngModel)]="filter" placeholder="Filter by descripcion or usuario">
                   </div>
                   <app-spinner></app-spinner>                
-                  <div class="table-responsive">
+                  <div class="">
                     <form action="">
-
-                   
-                    <table class="table table-striped jambo_table bulk_action">
-                      <thead>
-                        <tr class="headings">
-                          <th  class="column-title">Clave </th>
-                          <th class="column-title">Descripción</th>
-                          <th class="column-title">Fecha </th>
-                          <th class="column-title">Tema </th>
-                          <th class="column-title">Autor </th>
-                        </tr>
-                      </thead>
-
-                      <tbody>
-
-                        @for (item of advices | advices:filter | paginate: { 
-                          itemsPerPage: itemsPerPage,
-                          currentPage: currentPage,
-                          totalItems: totalRegs};                          
-                          track $index) {
-
-                        <tr class="even pointer">
-                          <td class=" ">{{item.id}}</td>
-                          <td class=" ">{{item.descripcion}}</td>
-                          <td class=" ">{{item.fecha | date }}</td>
-                          <td class=" ">{{item.tema.descripcion}}</td>
-                          <td class=" ">{{item.usuario.username}}</td>
-                        </tr>                               
-                      }               
-                      </tbody>
-                    </table>
-                    <pagination-controls 
-                          previousLabel="Anterior"
-                          nextLabel="Siguiente"
-                          (pageChange)="currentPage = $event">
-                    </pagination-controls>
+                      <sel-child-list-advices [advices]="advices" 
+                        [currentPage]="currentPage"
+                        [totalRegs]="totalRegs"
+                        [itemsPerPage]="itemsPerPage">                                        
+                      </sel-child-list-advices>                   
                   </form>
                 </div>
               </div>

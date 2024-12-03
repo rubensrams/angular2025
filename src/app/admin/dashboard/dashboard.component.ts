@@ -4,15 +4,15 @@ import { AdvicesService } from '../../services/advices.service';
 import { CommonModule } from '@angular/common';
 import { SpinnerComponent } from '../../shared/spinner/spinner.component';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { AdvicesPipe } from '../../pipes/advices.pipe';
 import { FormsModule } from '@angular/forms';
-
-
+import { AuthService } from '../../services/auth.service';
+import { RouterModule } from '@angular/router';
+import { ListAdvicesComponent } from '../../shared/advices/list-advices/list-advices.component';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, SpinnerComponent, NgxPaginationModule, AdvicesPipe, FormsModule],
+  imports: [CommonModule, SpinnerComponent, NgxPaginationModule, FormsModule, RouterModule, ListAdvicesComponent],
   templateUrl: './dashboard.component.html'
 })
 export class DashboardComponent implements OnInit {
@@ -20,10 +20,11 @@ export class DashboardComponent implements OnInit {
   advices: Advice[] = [];
   @ViewChild(SpinnerComponent) spinner!: SpinnerComponent;
   currentPage: number= 1;
-  itemsPerPage: number= 10;
+  itemsPerPage: number= 8;
   totalRegs: number= 0;
   constructor( 
-    private advicesServices:AdvicesService 
+    private advicesServices:AdvicesService ,
+    private authService: AuthService
   ){
 
   }
@@ -46,6 +47,6 @@ export class DashboardComponent implements OnInit {
     this.spinner.startLoading();
 
    }
-
+   
 
 }
